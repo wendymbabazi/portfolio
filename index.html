@@ -3,88 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wendy Mbabazi Aikiriza | Portfolio</title>
+  <title>Wendy Mbabazi Aikiriza | IT Support Portfolio</title>
+
   <style>
-    :root { --primary: #6c63ff; --accent: #00d2ff; --dark: #1f1f3a; --light: #f8f9fd; }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; transition: 0.3s; }
+    :root {
+      --primary: #6c63ff;
+      --accent: #00d2ff;
+      --dark: #1f1f3a;
+      --light: #f8f9fd;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: 0.25s ease;
+    }
+
     html { scroll-behavior: smooth; }
-    body { font-family: 'Segoe UI', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
 
-    /* Balanced Header: Compact but Professional */
-    header { 
-      background: linear-gradient(135deg, var(--primary), var(--accent)); 
-      color: white; padding: 60px 10%; 
-      display: flex; align-items: center; gap: 30px;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
     }
-    .profile-pic { 
-      width: 160px; height: 160px; border-radius: 15px; 
-      object-fit: cover; border: 4px solid rgba(255,255,255,0.3); 
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    .header-text h1 { font-size: 2.2rem; margin-bottom: 5px; }
-    .header-text p { font-size: 1.1rem; opacity: 0.9; font-weight: 300; }
 
-    nav { 
-      background: white; position: sticky; top: 0; 
-      display: flex; justify-content: center; padding: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 100;
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 55px 10%;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
     }
-    nav a { text-decoration: none; color: var(--dark); font-weight: 600; margin: 0 15px; font-size: 0.9rem; }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.35);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    }
+
+    .header-text h1 {
+      font-size: 2.1rem;
+      margin-bottom: 6px;
+    }
+
+    .header-text p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      opacity: 0.95;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      background: white;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 100;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      margin: 0 14px;
+      font-size: 0.9rem;
+    }
+
     nav a:hover { color: var(--primary); }
 
-    section { max-width: 1050px; margin: auto; padding: 50px 20px; }
-    h2 { font-size: 1.8rem; margin-bottom: 30px; color: var(--primary); text-align: center; }
-
-    /* Summary Card */
-    .summary-card { background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
-
-    /* Grid Layouts */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-    .card { background: white; padding: 25px; border-radius: 15px; border: 1px solid #eee; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(108, 99, 255, 0.1); }
-    
-    .tag { 
-      display: inline-block; background: #f0efff; color: var(--primary); padding: 5px 12px; 
-      border-radius: 50px; font-size: 0.8rem; margin: 3px; font-weight: 600; 
+    /* ===== SECTIONS ===== */
+    section {
+      max-width: 1050px;
+      margin: auto;
+      padding: 35px 20px;
     }
 
-    /* App Demos */
-    .app-frame { background: #f1f3ff; padding: 10px; border-radius: 12px; margin-top: 15px; }
-    iframe { width: 100%; height: 320px; border: none; border-radius: 8px; background: white; }
+    h2 {
+      font-size: 1.7rem;
+      margin-bottom: 25px;
+      color: var(--primary);
+      text-align: center;
+    }
 
-    /* Design Gallery */
-    .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
-    .design-item { aspect-ratio: 1; background: #ddd; border-radius: 12px; overflow: hidden; border: 1px solid #eee; }
-    .design-item img { width: 100%; height: 100%; object-fit: cover; }
+    /* ===== SUMMARY ===== */
+    .summary-card {
+      background: white;
+      padding: 28px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
 
-    /* Improved Contact Section */
+    /* ===== GRID & CARDS ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid #eee;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(108,99,255,0.12);
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f0efff;
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      margin: 4px 3px;
+      font-weight: 600;
+    }
+
+    /* ===== PROJECTS ===== */
+    .app-frame {
+      background: #f1f3ff;
+      padding: 10px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+    }
+
+    /* ===== DESIGN ===== */
+    .design-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .design-item {
+      aspect-ratio: 1;
+      background: #ddd;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #eee;
+    }
+
+    .design-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== CONTACT ===== */
     .contact-container {
       background: linear-gradient(135deg, #ffffff 0%, #f4f6ff 100%);
-      border: 2px solid var(--primary); border-radius: 20px;
-      padding: 40px; text-align: center;
-    }
-    .contact-btn {
-      background: var(--primary); color: white; padding: 12px 25px;
-      text-decoration: none; border-radius: 50px; display: inline-block;
-      margin: 10px; font-weight: bold; font-size: 0.9rem;
+      border: 2px solid var(--primary);
+      border-radius: 20px;
+      padding: 35px;
+      text-align: center;
     }
 
-    footer { background: var(--dark); color: white; text-align: center; padding: 30px; font-size: 0.85rem; opacity: 0.8; }
+    .contact-btn {
+      background: var(--primary);
+      color: white;
+      padding: 11px 24px;
+      text-decoration: none;
+      border-radius: 50px;
+      display: inline-block;
+      margin: 8px;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
 
     @media (max-width: 768px) {
-      header { flex-direction: column; text-align: center; padding: 40px 20px; }
+      header {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .design-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <img src="images\display_pohto.png" class="profile-pic" alt="Wendy">
+  <img src="images/display_photo.png" class="profile-pic" alt="Wendy Mbabazi">
   <div class="header-text">
     <h1>Wendy Mbabazi Aikiriza</h1>
-    <p> IT Support |Software QA| Data Analysis | Design </p>
+    <p>IT Support & Software QA | User-Focused Technical Solutions</p>
   </div>
 </header>
 
@@ -97,16 +235,14 @@
 </nav>
 
 <section id="about">
-  <h2>Authentic Professionalism</h2>
+  <h2>Professional Summary</h2>
   <div class="summary-card">
-   <p style="font-size: 1.1rem; color: #444; max-width: 800px; margin: auto;">
-  I am a <strong>Computer Science graduate</strong> and <strong>IT Support & Quality Assurance professional</strong> 
-  with hands-on experience supporting users, troubleshooting technical issues, and improving software reliability. 
-  I enjoy working at the intersection of <strong>technology and people</strong> — whether that means resolving 
-  support tickets, documenting processes, or testing applications to ensure a smooth user experience. 
-  I bring a reliable, detail-oriented approach shaped by years of client-facing support and collaborative work.
-</p>
-
+    <p style="font-size:1.05rem; max-width:780px; margin:auto;">
+      I am a <strong>Computer Science graduate</strong> and <strong>IT Support & Quality Assurance professional</strong>
+      with hands-on experience supporting users, troubleshooting technical issues, and improving software reliability.
+      I enjoy working at the intersection of <strong>technology and people</strong> — resolving tickets, documenting
+      processes, and testing applications to ensure a smooth user experience.
+    </p>
   </div>
 </section>
 
@@ -114,21 +250,26 @@
   <h2>Technical Toolkit</h2>
   <div class="grid">
     <div class="card">
-      <h3>Remote & VA Operations</h3>
-      <span class="tag">Virtual Assistance</span> <span class="tag">Remote Support</span>
-      <span class="tag">Calendar Management</span> <span class="tag">Client Success</span>
-      <span class="tag">Email Operations</span>
+      <h3>Client Support & Operations</h3>
+      <span class="tag">Helpdesk Support</span>
+      <span class="tag">Remote Support</span>
+      <span class="tag">Client Success</span>
+      <span class="tag">Documentation</span>
     </div>
+
     <div class="card">
       <h3>QA & Technical Support</h3>
-      <span class="tag">Manual Testing</span> <span class="tag">Bug Reporting</span>
-      <span class="tag">Technical Writing</span> <span class="tag">Process Optimization</span>
+      <span class="tag">Manual Testing</span>
+      <span class="tag">Bug Reporting</span>
       <span class="tag">UAT</span>
+      <span class="tag">Process Optimization</span>
     </div>
+
     <div class="card">
       <h3>Design & Development</h3>
-      <span class="tag">UX/UI Design</span> <span class="tag">HTML5 / CSS3</span>
-      <span class="tag">Canva Graphics</span> <span class="tag">Python (ML)</span>
+      <span class="tag">HTML & CSS</span>
+      <span class="tag">Canva Design</span>
+      <span class="tag">UX/UI</span>
       <span class="tag">Power BI</span>
     </div>
   </div>
@@ -137,59 +278,60 @@
 <section id="projects">
   <h2>Functional Applications</h2>
   <div class="grid">
+
     <div class="card">
       <h3>Daily Task Manager</h3>
-      <p>A frontend logic demo showing UI flow and task persistence.</p>
+      <p>A frontend logic demo highlighting task flow and usability.</p>
       <div class="app-frame">
         <iframe sandbox="allow-scripts" srcdoc="
-          <style>body{font-family:sans-serif;padding:10px;background:#f4f6ff;} input{padding:6px;width:60%;} button{background:#6c63ff;color:white;border:none;padding:6px;cursor:pointer;}</style>
-          <input id='t' placeholder='New task...'> <button onclick='a()'>Add</button>
-          <ul id='l' style='padding:10px 0;list-style:none;'></ul>
-          <script>function a(){let t=document.getElementById('t');if(!t.value)return;let li=document.createElement('li');li.style='background:white;margin-bottom:4px;padding:5px;display:flex;justify-content:space-between;border-radius:4px;';li.innerHTML=t.value+' <span onclick=this.parentElement.remove() style=cursor:pointer>❌</span>';document.getElementById('l').appendChild(li);t.value='';}</script>
+          <style>body{font-family:sans-serif;padding:10px;background:#f4f6ff;}button{background:#6c63ff;color:white;border:none;padding:6px;cursor:pointer}</style>
+          <input id='t' placeholder='New task'> <button onclick='a()'>Add</button>
+          <ul id='l'></ul>
+          <script>function a(){let t=document.getElementById('t');if(!t.value)return;let li=document.createElement('li');li.innerHTML=t.value+' ❌';li.onclick=()=>li.remove();document.getElementById('l').appendChild(li);t.value='';}</script>
         "></iframe>
       </div>
     </div>
+
     <div class="card">
       <h3>IT Support FAQ Bot</h3>
-      <p>A simulation of an automated helpdesk agent for troubleshooting.</p>
+      <p>A simulation of an automated helpdesk response flow.</p>
       <div class="app-frame">
         <iframe sandbox="allow-scripts" srcdoc="
-          <style>body{font-family:sans-serif;padding:10px;background:#f4f6ff;} #c{height:150px;overflow-y:auto;background:white;padding:5px;border:1px solid #ddd;font-size:12px;margin-bottom:5px;}</style>
-          <div id='c'>Try asking about 'password'...</div>
-          <input id='i' style='width:65%'> <button onclick='s()'>Send</button>
-          <script>function s(){let v=document.getElementById('i').value.toLowerCase();let c=document.getElementById('c');let r='Escalating...';if(v.includes('password'))r='Reset via HQZen portal.';if(v.includes('internet'))r='Check router cables.';c.innerHTML+='<p><b>You:</b> '+v+'</p><p style=color:#6c63ff><b>Bot:</b> '+r+'</p>';document.getElementById('i').value='';c.scrollTop=c.scrollHeight;}</script>
+          <style>body{font-family:sans-serif;padding:10px;background:#f4f6ff;}#c{height:140px;overflow:auto;background:white;padding:6px;border:1px solid #ddd}</style>
+          <div id='c'>Ask about password or internet issues.</div>
+          <input id='i'> <button onclick='s()'>Send</button>
+          <script>function s(){let v=i.value.toLowerCase();let r='Escalating...';if(v.includes('password'))r='Reset via company portal.';if(v.includes('internet'))r='Restart router or check cables.';c.innerHTML+=`<p><b>You:</b> ${v}</p><p style=color:#6c63ff><b>Bot:</b> ${r}</p>`;i.value='';c.scrollTop=c.scrollHeight}</script>
         "></iframe>
       </div>
     </div>
+
   </div>
 </section>
 
 <section id="design">
-  <h2>Graphic Design Gallery</h2>
+  <h2>Graphic Design</h2>
   <div class="design-grid">
-    <div class="design-item"><img src="images/design1.png" alt="UX Work"></div>
-    <div class="design-item"><img src="images/design2.png" alt="Graphics"></div>
-    <div class="design-item"><img src="images/design3.png" alt="Documentation"></div>
-    <div class="design-item"><img src="images/design4.png" alt="Branding"></div>
+    <div class="design-item"><img src="images/design1.png"></div>
+    <div class="design-item"><img src="images/design2.png"></div>
+    <div class="design-item"><img src="images/design3.png"></div>
+    <div class="design-item"><img src="images/design4.png"></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="contact-container">
-    <h2>Let’s Build Something Together</h2>
-    <p style="margin-bottom: 25px;">I am fully equipped for remote work and ready to bring value to your team.</p>
+    <h2>Let’s Work Together</h2>
+    <p style="margin-bottom:20px;">
+      I’m ready to support users, teams, and products with reliability and care.
+    </p>
     <a href="mailto:kirewendy@gmail.com" class="contact-btn">Email Me</a>
-    <a href="https://linkedin.com/in/wendymbabazi" class="contact-btn" style="background:#0077b5">LinkedIn Profile</a>
-    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
-        <p><strong>Kampala, Uganda | Available Worldwide (Remote)</strong></p>
-        <p style="font-style: italic; opacity: 0.7; margin-top: 10px;">"I believe in technical integrity and authentic communication."</p>
-    </div>
+    <a href="https://linkedin.com/in/wendymbabazi" class="contact-btn" style="background:#0077b5">LinkedIn</a>
+    <p style="margin-top:25px;font-weight:600;">Kampala, Uganda | Remote-Friendly</p>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Wendy Mbabazi Aikiriza | Makerere University CS Graduate</p>
-  <p>Built with Authenticity & Technical Excellence</p>
+  © 2026 Wendy Mbabazi Aikiriza 
 </footer>
 
 </body>
