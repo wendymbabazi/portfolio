@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wendy Mbabazi | IT Support Portfolio</title>
+
+  <style>
+:root {
+  --primary: #6c63ff;
+  --secondary: #f4f6ff;
+  --text: #2b2d42;
+  --card-bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(180deg, #f9faff, #f1f3ff);
+  color: var(--text);
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary), #8f88ff);
+  color: #fff;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.profile-pic {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 7px solid #fff;
+  object-fit: cover;
+  margin-bottom: 25px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+nav {
+  background: rgba(255,255,255,0.95);
+  position: sticky;
+  top: 0;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+nav a {
+  margin: 0 16px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+section {
+  max-width: 1150px;
+  margin: auto;
+  padding: 70px 20px;
+}
+
+h2 { color: var(--primary); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.tag {
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 6px 14px;
+  margin: 6px 6px 0 0;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  border-radius: 14px;
+  margin-top: 15px;
+  background: #fff;
+}
+
+pre {
+  background: #f6f7ff;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+footer {
+  background: #1f1f3a;
+  color: #fff;
+  text-align: center;
+  padding: 28px;
+}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="images\display_pohto.png" class="profile-pic" alt="Wendy Mbabazi">
+  <h1>Wendy Mbabazi Aikiriza</h1>
+  <p>IT Support Professional </p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I am an IT Support and Quality Assurance professional with experience in
+    troubleshooting, documentation, and software testing. I also build
+    user-friendly websites and interactive tools that improve user experience.
+  </p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>IT Support & QA</h3>
+      <span class="tag">Helpdesk</span>
+      <span class="tag">Manual Testing</span>
+      <span class="tag">Bug Reports</span>
+      <span class="tag">UAT</span>
+      <span class="tag">Documentation</span>
+    </div>
+    <div class="card">
+      <h3>Web & Design</h3>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">Canva</span>
+      <span class="tag">GitHub Pages</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Live Projects</h2>
+
+  <!-- TASK MANAGER -->
+  <div class="card">
+    <h3>Daily Task Manager</h3>
+    <p>Interactive task manager demonstrating frontend logic and usability.</p>
+
+    <iframe sandbox="allow-scripts allow-forms" srcdoc="
+<!DOCTYPE html>
+<html>
+<body style='font-family:Arial;padding:20px'>
+<h3>Task Manager</h3>
+<input id='task' placeholder='New task'>
+<button onclick='add()'>Add</button>
+<ul id='list'></ul>
+<script>
+function add(){
+  const t=document.getElementById('task');
+  if(!t.value)return;
+  const li=document.createElement('li');
+  li.innerHTML=t.value+' <button onclick=this.parentElement.remove()>Done</button>';
+  document.getElementById('list').appendChild(li);
+  t.value='';
+}
+</script>
+</body>
+</html>
+"></iframe>
+  </div>
+
+  <!-- FAQ BOT -->
+  <div class="card">
+    <h3>IT Support FAQ Bot</h3>
+    <p>Simulates common IT support responses.</p>
+
+    <iframe sandbox="allow-scripts allow-forms" srcdoc="
+<!DOCTYPE html>
+<html>
+<body style='font-family:Arial;padding:20px'>
+<h3>IT Support Bot</h3>
+<div id='chat'></div>
+<input id='q' placeholder='Ask a question'>
+<button onclick='ask()'>Send</button>
+<script>
+function ask(){
+  let q=document.getElementById('q').value;
+  if(!q)return;
+  chat.innerHTML+='<p><b>You:</b> '+q+'</p>';
+  let r='Please contact IT support.';
+  if(q.includes('password')) r='Reset your password via the portal.';
+  if(q.includes('internet')) r='Restart router or check cables.';
+  chat.innerHTML+='<p><b>Bot:</b> '+r+'</p>';
+  document.getElementById('q').value='';
+}
+</script>
+</body>
+</html>
+"></iframe>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <strong>kirewendy@gmail.com</strong></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/wendymbabazi">linkedin.com/in/wendymbabazi</a></p>
+  <p>GitHub: <a href="https://github.com/wendymbabazi">github.com/wendymbabazi</a></p>
+</section>
+
+<footer>
+  © 2026 Wendy Mbabazi | IT Support Portfolio
+</footer>
+
+</body>
+</html>
