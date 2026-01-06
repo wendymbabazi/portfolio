@@ -3,69 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wendy Mbabazi | IT Support & Design Portfolio</title>
+  <title>Wendy Mbabazi | IT & Design Portfolio</title>
 
   <style>
     :root {
-      --primary: #6c63ff;
-      --secondary: #f4f6ff;
-      --accent: #00d2ff;
-      --text: #2b2d42;
-      --card-bg: #ffffff;
-      --footer-bg: #1f1f3a;
+      --primary: #6c63ff; /* Modern Purple */
+      --accent: #00d2ff;  /* Tech Blue */
+      --dark: #2b2d42;
+      --light: #f8f9fd;
+      --glass: rgba(255, 255, 255, 0.8);
     }
 
-    * { box-sizing: border-box; transition: all 0.3s ease; }
+    * { box-sizing: border-box; transition: all 0.3s ease-in-out; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f8f9fd;
-      color: var(--text);
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
       line-height: 1.6;
     }
 
-    /* Modern Header */
+    /* Hero Section with Glass Effect */
     header {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, #6c63ff 0%, #00d2ff 100%), 
+                  url('https://www.transparenttextures.com/patterns/cubes.png');
       color: #fff;
       text-align: center;
-      padding: 100px 20px;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+      padding: 120px 20px;
+      clip-path: ellipse(150% 100% at 50% 0%);
     }
 
     .profile-pic {
-      width: 200px;
-      height: 200px;
+      width: 210px;
+      height: 210px;
       border-radius: 50%;
-      border: 8px solid rgba(255,255,255,0.2);
+      border: 6px solid var(--glass);
       object-fit: cover;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
 
-    header h1 { margin: 10px 0; font-size: 2.5rem; letter-spacing: 1px; }
-    header p { font-size: 1.2rem; opacity: 0.9; font-weight: 300; }
+    header h1 { font-size: 3rem; margin: 10px 0; letter-spacing: -1px; }
+    header p { font-size: 1.3rem; opacity: 0.9; font-weight: 300; }
 
-    /* Sticky Navigation */
+    /* Floating Navigation */
     nav {
-      background: rgba(255,255,255,0.9);
+      background: var(--glass);
       backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
       padding: 15px;
       text-align: center;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.05);
       z-index: 1000;
     }
 
     nav a {
-      margin: 0 20px;
+      margin: 0 15px;
       text-decoration: none;
-      color: var(--text);
-      font-weight: 600;
-      text-transform: uppercase;
+      color: var(--dark);
+      font-weight: 700;
       font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     nav a:hover { color: var(--primary); }
@@ -73,28 +76,17 @@
     section {
       max-width: 1100px;
       margin: auto;
-      padding: 80px 20px;
+      padding: 100px 20px;
     }
 
     h2 { 
-      font-size: 2rem; 
-      margin-bottom: 40px; 
-      text-align: center;
-      position: relative;
+      font-size: 2.2rem; 
+      text-align: center; 
+      margin-bottom: 50px;
+      color: var(--primary);
     }
 
-    h2::after {
-      content: '';
-      width: 50px;
-      height: 4px;
-      background: var(--primary);
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* Skills Grid */
+    /* Refined Skills Grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -102,91 +94,80 @@
     }
 
     .card {
-      background: var(--card-bg);
-      padding: 35px;
-      border-radius: 20px;
-      border: 1px solid #eee;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
     }
 
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(108, 99, 255, 0.1);
+      box-shadow: 0 30px 60px rgba(108, 99, 255, 0.15);
     }
 
     .tag {
       display: inline-block;
-      background: var(--secondary);
+      background: #f0efff;
       color: var(--primary);
       padding: 8px 16px;
-      margin: 5px 3px;
+      margin: 5px 2px;
       border-radius: 50px;
       font-size: 0.8rem;
-      font-weight: bold;
+      font-weight: 600;
     }
 
-    /* Design Gallery Section */
+    /* Design Gallery Styling */
     .design-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
     .design-item {
-      aspect-ratio: 1;
-      background: #ddd;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 15px;
       overflow: hidden;
-      cursor: pointer;
-      position: relative;
+      height: 250px;
+      background: #eee;
+      border: 1px solid #ddd;
     }
 
     .design-item img { width: 100%; height: 100%; object-fit: cover; }
-    
-    .design-item:hover::after {
-        content: 'View Design';
-        position: absolute;
-        background: rgba(108, 99, 255, 0.8);
-        color: white;
-        width: 100%; height: 100%;
-        display: flex; align-items: center; justify-content: center;
+
+    /* iframe / Apps styling */
+    .app-container {
+      background: #1e1e2f;
+      padding: 15px;
+      border-radius: 15px;
+      margin-top: 15px;
     }
 
     iframe {
       width: 100%;
-      height: 350px;
-      border: 2px solid #eee;
-      border-radius: 15px;
-      margin-top: 20px;
-    }
-
-    .btn-github {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: #24292e;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 0.9rem;
+      height: 380px;
+      border: none;
+      border-radius: 10px;
+      background: #fff;
     }
 
     footer {
-      background: var(--footer-bg);
-      color: rgba(255,255,255,0.7);
+      background: var(--dark);
+      color: #fff;
       text-align: center;
-      padding: 50px 20px;
-      margin-top: 50px;
+      padding: 60px 20px;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      header { padding: 60px 20px; }
-      nav a { margin: 0 10px; font-size: 0.8rem; }
+    .contact-btn {
+        background: var(--primary);
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 50px;
+        display: inline-block;
+        margin-top: 20px;
+        font-weight: bold;
     }
   </style>
 </head>
@@ -194,119 +175,141 @@
 <body>
 
 <header>
-  <img src="images/display_photo.png" class="profile-pic" alt="Wendy Mbabazi">
+  <img src="images\display_pohto.png" class="profile-pic" alt="Wendy Mbabazi">
   <h1>Wendy Mbabazi Aikiriza</h1>
-  <p>Software QA | IT Support | Data Analytics</p>
+  <p>Software QA | IT Support | UX & Web Designer</p>
 </header>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Apps</a>
-  <a href="#design">Design</a>
+  <a href="#about">Summary</a>
+  <a href="#skills">Toolkit</a>
+  <a href="#projects">Live Apps</a>
+  <a href="#design">Design Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
   <h2>Professional Summary</h2>
-  <p style="text-align: center; max-width: 800px; margin: auto;">
-    Computer Science graduate from Makerere University with a passion for bridging the gap between technical complexity and user satisfaction. 
-    Specializing in <strong>Quality Assurance</strong> and <strong>Client Success</strong>, I leverage my 
-    Data Science background to build data-driven solutions and technical documentation that works.
-  </p>
+  <div class="card" style="text-align: center; max-width: 900px; margin: auto;">
+    <p style="font-size: 1.1rem;">
+        Computer Science professional and Refactory-certified <strong>Data Science & ML specialist</strong> with a background in 
+        IT Support and Software QA. I focus on bridging the gap between complex technical systems and user-friendly design. 
+        With a proven track record of reducing support tickets by <strong>30%</strong> through better documentation, 
+        I now apply <strong>UX/UI principles</strong> and <strong>Web Development</strong> to build authentic, efficient digital experiences.
+    </p>
+  </div>
 </section>
 
 <section id="skills">
   <h2>Technical Toolkit</h2>
   <div class="grid">
     <div class="card">
-      <h3>QA & Troubleshooting</h3>
+      <h3>IT Support & Software QA</h3>
       <span class="tag">Manual Testing</span>
-      <span class="tag">Bug Reporting</span>
+      <span class="tag">Bug Tracking</span>
       <span class="tag">UAT</span>
-      <span class="tag">Process Documentation</span>
-      <span class="tag">CRM (HQZen)</span>
+      <span class="tag">Technical Writing</span>
+      <span class="tag">Troubleshooting</span>
     </div>
     <div class="card">
-      <h3>Data & Programming</h3>
+      <h3>Design, UX & Web</h3>
+      <span class="tag">UX Research</span>
+      <span class="tag">HTML5 / CSS3</span>
+      <span class="tag">Canva Graphics</span>
+      <span class="tag">Wireframing</span>
+      <span class="tag">Responsive Design</span>
+    </div>
+    <div class="card">
+      <h3>Data Science & Code</h3>
       <span class="tag">Python (ML)</span>
+      <span class="tag">Java</span>
       <span class="tag">SQL</span>
       <span class="tag">Power BI</span>
-      <span class="tag">Java</span>
-      <span class="tag">HTML/CSS</span>
+      <span class="tag">GitHub</span>
     </div>
   </div>
 </section>
 
 <section id="projects">
-  <h2>Interactive Applications</h2>
+  <h2>Application Building</h2>
   <div class="grid">
     <div class="card">
       <h3>Daily Task Manager</h3>
-      <p>A functional tool built to demonstrate frontend logic and UI flow.</p>
-      <iframe sandbox="allow-scripts allow-forms" srcdoc="
-        <style>body{font-family:sans-serif; background:#f4f6ff; padding:20px;} input{padding:8px; border:1px solid #ddd; border-radius:4px;} button{background:#6c63ff; color:white; border:none; padding:8px 15px; border-radius:4px; cursor:pointer;}</style>
-        <h3>My Tasks</h3>
-        <input id='task' placeholder='Add a new task...'>
-        <button onclick='add()'>Add</button>
-        <ul id='list' style='list-style:none; padding:0; margin-top:20px;'></ul>
-        <script>
-        function add(){
-          const t=document.getElementById('task');
-          if(!t.value)return;
-          const li=document.createElement('li');
-          li.style='background:white; padding:10px; margin-bottom:5px; border-radius:5px; display:flex; justify-content:space-between;';
-          li.innerHTML=t.value+' <button style=\'background:#ff7675; padding:2px 8px;\' onclick=this.parentElement.remove()>X</button>';
-          document.getElementById('list').appendChild(li);
-          t.value='';
-        }
-        </script>
-      "></iframe>
-      <a href="https://github.com/wendymbabazi" class="btn-github">View Repository</a>
+      <p>A frontend logic demonstration focusing on clean UI and task persistence.</p>
+      <div class="app-container">
+        <iframe sandbox="allow-scripts allow-forms" srcdoc="
+          <style>body{font-family:sans-serif; padding:20px; background:#f4f6ff;} h3{color:#6c63ff;} input{padding:10px; border-radius:5px; border:1px solid #ddd; width:60%;} button{padding:10px; background:#6c63ff; color:white; border:none; border-radius:5px; cursor:pointer;}</style>
+          <h3>My Daily Tasks</h3>
+          <input id='task' placeholder='What needs doing?'> <button onclick='add()'>Add</button>
+          <ul id='list' style='margin-top:20px; padding:0; list-style:none;'></ul>
+          <script>
+            function add(){
+              const t=document.getElementById('task');
+              if(!t.value)return;
+              const li=document.createElement('li');
+              li.style='background:white; padding:10px; margin-bottom:5px; border-radius:5px; box-shadow:0 2px 5px rgba(0,0,0,0.1); display:flex; justify-content:space-between;';
+              li.innerHTML=t.value+' <button style=\'background:red; padding:2px 5px; font-size:10px;\' onclick=this.parentElement.remove()>Delete</button>';
+              document.getElementById('list').appendChild(li);
+              t.value='';
+            }
+          </script>
+        "></iframe>
+      </div>
     </div>
 
     <div class="card">
-      <h3>IT Support Bot</h3>
-      <p>Simulates automated troubleshooting for common hardware and software issues.</p>
-      <iframe sandbox="allow-scripts allow-forms" srcdoc="
-        <style>body{font-family:sans-serif; background:#f4f6ff; padding:20px;} #chat{height:150px; overflow-y:auto; background:white; padding:10px; border-radius:5px; margin-bottom:10px; border:1px solid #eee; font-size:14px;}</style>
-        <h3>Support Assistant</h3>
-        <div id='chat'>Welcome! How can I help you today?</div>
-        <input id='q' placeholder='Try \"password\" or \"internet\"' style='width:70%; padding:8px;'>
-        <button onclick='ask()' style='background:#6c63ff; color:white; border:none; padding:8px 10px; border-radius:4px;'>Send</button>
-        <script>
-        function ask(){
-          let q=document.getElementById('q').value.toLowerCase();
-          if(!q)return;
-          let chat=document.getElementById('chat');
-          chat.innerHTML+='<p><b>You:</b> '+q+'</p>';
-          let r='I will escalate this to a human agent.';
-          if(q.includes('password')) r='Please use the HQZen portal to trigger a reset email.';
-          if(q.includes('internet')) r='Check your ethernet cable and restart the router.';
-          chat.innerHTML+='<p style=\'color:#6c63ff\'><b>Bot:</b> '+r+'</p>';
-          document.getElementById('q').value='';
-          chat.scrollTop = chat.scrollHeight;
-        }
-        </script>
-      "></iframe>
-      <a href="https://github.com/wendymbabazi" class="btn-github">View Repository</a>
-    </div>
+        <h3>IT Support FAQ Bot</h3>
+        <p>A simulation of automated response systems for technical troubleshooting.</p>
+        <div class="app-container">
+          <iframe sandbox="allow-scripts allow-forms" srcdoc="
+            <style>body{font-family:sans-serif; padding:15px; background:#f4f6ff;} #chat{height:180px; background:white; border-radius:10px; padding:10px; overflow-y:auto; border:1px solid #ddd; margin-bottom:10px; font-size:13px;}</style>
+            <h3>Support Assistant</h3>
+            <div id='chat'>Hello! Type 'internet' or 'password' to test me.</div>
+            <input id='q' placeholder='Ask a question...' style='width:70%; padding:8px;'> <button onclick='ask()' style='background:#6c63ff; color:white; border:none; padding:8px; border-radius:5px;'>Send</button>
+            <script>
+              function ask(){
+                let q=document.getElementById('q').value.toLowerCase();
+                if(!q)return;
+                let c=document.getElementById('chat');
+                c.innerHTML+='<p><b>You:</b> '+q+'</p>';
+                let r='I am still learning! Please contact the admin.';
+                if(q.includes('password')) r='Use the HQZen portal to reset your credentials.';
+                if(q.includes('internet')) r='Verify your cables and restart your router.';
+                c.innerHTML+='<p style=\'color:#6c63ff\'><b>Bot:</b> '+r+'</p>';
+                document.getElementById('q').value='';
+                c.scrollTop = c.scrollHeight;
+              }
+            </script>
+          "></iframe>
+        </div>
+      </div>
   </div>
 </section>
 
 <section id="design">
-  <h2>Graphic Design Showcase</h2>
-  <p>Visual content created for technical documentation and brand awareness.</p>
+  <h2>Graphic Design Portfolio</h2>
+  <p style="text-align:center;">Visualizing technical processes and brand identity through Canva and UX Research.</p>
   <div class="design-grid">
-    <div class="design-item"><img src="images/design1.png" alt="Process Infographic"></div>
-    <div class="design-item"><img src="images/design2.png" alt="Technical Manual Layout"></div>
-    <div class="design-item"><img src="images/design3.png" alt="Social Media Asset"></div>
-    <div class="design-item"><img src="images/design4.png" alt="Logo Work"></div>
+    <div class="design-item"><img src="images/design1.png" alt="Design 1"></div>
+    <div class="design-item"><img src="images/design2.png" alt="Design 2"></div>
+    <div class="design-item"><img src="images/design3.png" alt="Design 3"></div>
+    <div class="design-item"><img src="images/design4.png" alt="Design 4"></div>
   </div>
 </section>
 
-<section id="contact">
-  <h2>Let's Connect</h2>
-  <div class="card" style="text-align: center;">
-    <p>Available for Quality Assurance, IT Support, and Data Analytics roles.</p>
-    <p>Email: <strong>kirewend
+<section id="contact" style="text-align: center;">
+  <h2>Get In Touch</h2>
+  <div class="card" style="max-width: 600px; margin: auto;">
+    <p>I am currently open to roles in **QA, IT Support, or Junior Web/UX Design**.</p>
+    <p>Email: <strong>kirewendy@gmail.com</strong></p>
+    <a href="mailto:kirewendy@gmail.com" class="contact-btn">Send me a Message</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Wendy Mbabazi Aikiriza | Built Authentically</p>
+  <p style="font-size: 0.8rem; opacity: 0.6;">Computer Science Graduate - Makerere University</p>
+</footer>
+
+</body>
+</html>
