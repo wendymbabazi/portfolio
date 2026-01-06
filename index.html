@@ -4,206 +4,109 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wendy Mbabazi Aikiriza | Portfolio</title>
-
   <style>
-    :root {
-      --primary: #6c63ff; 
-      --accent: #00d2ff;  
-      --dark: #1f1f3a;
-      --light: #f8f9fd;
-      --glass: rgba(255, 255, 255, 0.9);
-    }
-
-    * { box-sizing: border-box; transition: all 0.3s ease; }
+    :root { --primary: #6c63ff; --accent: #00d2ff; --dark: #1f1f3a; --light: #f8f9fd; }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; transition: 0.3s; }
     html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    /* Modern Hero Section */
-    header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      color: #fff;
-      text-align: center;
-      padding: 100px 20px;
+    /* Balanced Header: Compact but Professional */
+    header { 
+      background: linear-gradient(135deg, var(--primary), var(--accent)); 
+      color: white; padding: 60px 10%; 
+      display: flex; align-items: center; gap: 30px;
       clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
     }
-
-    .profile-pic {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: 6px solid rgba(255, 255, 255, 0.3);
-      object-fit: cover;
-      margin-bottom: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    .profile-pic { 
+      width: 160px; height: 160px; border-radius: 15px; 
+      object-fit: cover; border: 4px solid rgba(255,255,255,0.3); 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
+    .header-text h1 { font-size: 2.2rem; margin-bottom: 5px; }
+    .header-text p { font-size: 1.1rem; opacity: 0.9; font-weight: 300; }
 
-    header h1 { font-size: 2.8rem; margin: 10px 0; }
-    header p { font-size: 1.2rem; opacity: 0.9; font-weight: 300; }
-
-    /* Navigation */
-    nav {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-      z-index: 1000;
+    nav { 
+      background: white; position: sticky; top: 0; 
+      display: flex; justify-content: center; padding: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05); z-index: 100;
     }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
+    nav a { text-decoration: none; color: var(--dark); font-weight: 600; margin: 0 15px; font-size: 0.9rem; }
     nav a:hover { color: var(--primary); }
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 80px 20px;
-    }
+    section { max-width: 1050px; margin: auto; padding: 50px 20px; }
+    h2 { font-size: 1.8rem; margin-bottom: 30px; color: var(--primary); text-align: center; }
 
-    h2 { 
-      font-size: 2rem; 
-      text-align: center; 
-      margin-bottom: 40px;
-      color: var(--primary);
-    }
+    /* Summary Card */
+    .summary-card { background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
 
     /* Grid Layouts */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .card { background: white; padding: 25px; border-radius: 15px; border: 1px solid #eee; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(108, 99, 255, 0.1); }
+    
+    .tag { 
+      display: inline-block; background: #f0efff; color: var(--primary); padding: 5px 12px; 
+      border-radius: 50px; font-size: 0.8rem; margin: 3px; font-weight: 600; 
     }
 
-    .card {
-      background: white;
-      padding: 35px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(108, 99, 255, 0.1);
-    }
-
-    .tag {
-      display: inline-block;
-      background: #f0efff;
-      color: var(--primary);
-      padding: 6px 14px;
-      margin: 4px 2px;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
+    /* App Demos */
+    .app-frame { background: #f1f3ff; padding: 10px; border-radius: 12px; margin-top: 15px; }
+    iframe { width: 100%; height: 320px; border: none; border-radius: 8px; background: white; }
 
     /* Design Gallery */
-    .design-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-    }
-
-    .design-item {
-      aspect-ratio: 1;
-      background: #eee;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #ddd;
-    }
-
+    .design-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+    .design-item { aspect-ratio: 1; background: #ddd; border-radius: 12px; overflow: hidden; border: 1px solid #eee; }
     .design-item img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* App Container */
-    .app-frame {
-      background: #f1f3ff;
-      padding: 10px;
-      border-radius: 12px;
-      margin-top: 15px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 350px;
-      border: none;
-      border-radius: 8px;
-      background: white;
-    }
-
-    /* Contact Section */
-    .contact-card {
+    /* Improved Contact Section */
+    .contact-container {
       background: linear-gradient(135deg, #ffffff 0%, #f4f6ff 100%);
-      border: 2px solid var(--primary);
-      text-align: center;
-      padding: 50px 20px;
-      border-radius: 25px;
+      border: 2px solid var(--primary); border-radius: 20px;
+      padding: 40px; text-align: center;
     }
-
     .contact-btn {
-      background: var(--primary);
-      color: white;
-      padding: 12px 30px;
-      text-decoration: none;
-      border-radius: 50px;
-      display: inline-block;
-      margin: 10px;
-      font-weight: bold;
+      background: var(--primary); color: white; padding: 12px 25px;
+      text-decoration: none; border-radius: 50px; display: inline-block;
+      margin: 10px; font-weight: bold; font-size: 0.9rem;
     }
 
-    footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
+    footer { background: var(--dark); color: white; text-align: center; padding: 30px; font-size: 0.85rem; opacity: 0.8; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; text-align: center; padding: 40px 20px; }
     }
   </style>
 </head>
-
 <body>
 
 <header>
-  <img src="images\display_pohto.png" class="profile-pic" alt="Wendy Mbabazi">
-  <h1>Wendy Mbabazi Aikiriza</h1>
-  <p>Software QA | IT Support | Remote Operations | UX & Web Designer</p>
+  <img src="images\display_pohto.png" class="profile-pic" alt="Wendy">
+  <div class="header-text">
+    <h1>Wendy Mbabazi Aikiriza</h1>
+    <p> IT Support |Software QA| Data Analysis | Design </p>
+  </div>
 </header>
 
 <nav>
   <a href="#about">Summary</a>
   <a href="#skills">Toolkit</a>
-  <a href="#projects">Apps</a>
+  <a href="#projects">Live Apps</a>
   <a href="#design">Design</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
   <h2>Authentic Professionalism</h2>
-  <div class="card" style="text-align: center; max-width: 900px; margin: auto;">
-    <p style="font-size: 1.1rem; color: #444;">
-        I am a <strong>Computer Science graduate</strong> and <strong>Data Specialist</strong> with a deep passion for 
-        efficient remote operations. My experience spans from reducing support tickets by <strong>30%</strong> at HQZen 
-        to performing critical <strong>QA testing</strong> and <strong>Virtual Assistance</strong>. 
-        I believe in transparency, high-quality documentation, and building technical solutions that are 
-        human-centered and reliable.
-    </p>
+  <div class="summary-card">
+   <p style="font-size: 1.1rem; color: #444; max-width: 800px; margin: auto;">
+  I am a <strong>Computer Science graduate</strong> and <strong>IT Support & Quality Assurance professional</strong> 
+  with hands-on experience supporting users, troubleshooting technical issues, and improving software reliability. 
+  I enjoy working at the intersection of <strong>technology and people</strong> — whether that means resolving 
+  support tickets, documenting processes, or testing applications to ensure a smooth user experience. 
+  I bring a reliable, detail-oriented approach shaped by years of client-facing support and collaborative work.
+</p>
+
   </div>
 </section>
 
@@ -211,28 +114,22 @@
   <h2>Technical Toolkit</h2>
   <div class="grid">
     <div class="card">
-      <h3>QA & Remote Operations</h3>
-      <span class="tag">Software Manual Testing</span>
-      <span class="tag">Bug Reporting</span>
-      <span class="tag">Virtual Assistance</span>
-      <span class="tag">Client Success</span>
-      <span class="tag">Technical Writing</span>
+      <h3>Remote & VA Operations</h3>
+      <span class="tag">Virtual Assistance</span> <span class="tag">Remote Support</span>
+      <span class="tag">Calendar Management</span> <span class="tag">Client Success</span>
+      <span class="tag">Email Operations</span>
     </div>
     <div class="card">
-      <h3>Design & Web Dev</h3>
-      <span class="tag">UX/UI Research</span>
-      <span class="tag">HTML5 / CSS3</span>
-      <span class="tag">Graphic Design (Canva)</span>
-      <span class="tag">Responsive Web Design</span>
-      <span class="tag">Wireframing</span>
+      <h3>QA & Technical Support</h3>
+      <span class="tag">Manual Testing</span> <span class="tag">Bug Reporting</span>
+      <span class="tag">Technical Writing</span> <span class="tag">Process Optimization</span>
+      <span class="tag">UAT</span>
     </div>
     <div class="card">
-      <h3>Data & Programming</h3>
-      <span class="tag">Python (ML)</span>
-      <span class="tag">SQL</span>
+      <h3>Design & Development</h3>
+      <span class="tag">UX/UI Design</span> <span class="tag">HTML5 / CSS3</span>
+      <span class="tag">Canva Graphics</span> <span class="tag">Python (ML)</span>
       <span class="tag">Power BI</span>
-      <span class="tag">Java</span>
-      <span class="tag">GitHub Pages</span>
     </div>
   </div>
 </section>
@@ -242,56 +139,35 @@
   <div class="grid">
     <div class="card">
       <h3>Daily Task Manager</h3>
-      <p>Built to demonstrate frontend logic, UI consistency, and task management.</p>
+      <p>A frontend logic demo showing UI flow and task persistence.</p>
       <div class="app-frame">
-        <iframe sandbox="allow-scripts allow-forms" srcdoc="
-          <style>body{font-family:sans-serif; padding:15px;} input{padding:8px; border-radius:4px; border:1px solid #ddd; width:60%;} button{background:#6c63ff; color:white; border:none; padding:8px; border-radius:4px; cursor:pointer;}</style>
-          <div id='app'>
-            <input id='t' placeholder='New task...'> <button onclick='a()'>Add</button>
-            <ul id='l' style='list-style:none; padding:0; margin-top:15px;'></ul>
-          </div>
-          <script>
-            function a(){
-              const t=document.getElementById('t'); if(!t.value)return;
-              const li=document.createElement('li');
-              li.style='background:#f9f9f9; padding:8px; margin-bottom:5px; border-radius:4px; display:flex; justify-content:space-between; border-left:4px solid #6c63ff;';
-              li.innerHTML=t.value+' <button style=\'background:red; font-size:10px;\' onclick=this.parentElement.remove()>X</button>';
-              document.getElementById('l').appendChild(li); t.value='';
-            }
-          </script>
+        <iframe sandbox="allow-scripts" srcdoc="
+          <style>body{font-family:sans-serif;padding:10px;background:#f4f6ff;} input{padding:6px;width:60%;} button{background:#6c63ff;color:white;border:none;padding:6px;cursor:pointer;}</style>
+          <input id='t' placeholder='New task...'> <button onclick='a()'>Add</button>
+          <ul id='l' style='padding:10px 0;list-style:none;'></ul>
+          <script>function a(){let t=document.getElementById('t');if(!t.value)return;let li=document.createElement('li');li.style='background:white;margin-bottom:4px;padding:5px;display:flex;justify-content:space-between;border-radius:4px;';li.innerHTML=t.value+' <span onclick=this.parentElement.remove() style=cursor:pointer>❌</span>';document.getElementById('l').appendChild(li);t.value='';}</script>
         "></iframe>
       </div>
     </div>
-
     <div class="card">
-        <h3>IT Support FAQ Bot</h3>
-        <p>A simulation of an automated helpdesk agent for troubleshooting common user issues.</p>
-        <div class="app-frame">
-          <iframe sandbox="allow-scripts allow-forms" srcdoc="
-            <style>body{font-family:sans-serif; padding:15px;} #c{height:180px; overflow-y:auto; border:1px solid #eee; padding:10px; margin-bottom:10px; font-size:13px; border-radius:5px;}</style>
-            <div id='c'><b>System:</b> Ready for questions. Try 'password' or 'app'.</div>
-            <input id='i' placeholder='Ask something...' style='width:65%; padding:8px;'> <button onclick='s()' style='background:#6c63ff; color:white; border:none; padding:8px; border-radius:5px;'>Send</button>
-            <script>
-              function s(){
-                let v=document.getElementById('i').value.toLowerCase(); if(!v)return;
-                let c=document.getElementById('c'); c.innerHTML+='<p><b>You:</b> '+v+'</p>';
-                let r='I will escalate this to technical support.';
-                if(v.includes('password')) r='Please reset via the secure HQZen portal link.';
-                if(v.includes('app')) r='Check for updates in the store or clear your cache.';
-                c.innerHTML+='<p style=\'color:#6c63ff\'><b>Bot:</b> '+r+'</p>';
-                document.getElementById('i').value=''; c.scrollTop=c.scrollHeight;
-              }
-            </script>
-          "></iframe>
-        </div>
+      <h3>IT Support FAQ Bot</h3>
+      <p>A simulation of an automated helpdesk agent for troubleshooting.</p>
+      <div class="app-frame">
+        <iframe sandbox="allow-scripts" srcdoc="
+          <style>body{font-family:sans-serif;padding:10px;background:#f4f6ff;} #c{height:150px;overflow-y:auto;background:white;padding:5px;border:1px solid #ddd;font-size:12px;margin-bottom:5px;}</style>
+          <div id='c'>Try asking about 'password'...</div>
+          <input id='i' style='width:65%'> <button onclick='s()'>Send</button>
+          <script>function s(){let v=document.getElementById('i').value.toLowerCase();let c=document.getElementById('c');let r='Escalating...';if(v.includes('password'))r='Reset via HQZen portal.';if(v.includes('internet'))r='Check router cables.';c.innerHTML+='<p><b>You:</b> '+v+'</p><p style=color:#6c63ff><b>Bot:</b> '+r+'</p>';document.getElementById('i').value='';c.scrollTop=c.scrollHeight;}</script>
+        "></iframe>
       </div>
+    </div>
   </div>
 </section>
 
 <section id="design">
-  <h2>Design Gallery</h2>
+  <h2>Graphic Design Gallery</h2>
   <div class="design-grid">
-    <div class="design-item"><img src="images/design1.png" alt="UX Research"></div>
+    <div class="design-item"><img src="images/design1.png" alt="UX Work"></div>
     <div class="design-item"><img src="images/design2.png" alt="Graphics"></div>
     <div class="design-item"><img src="images/design3.png" alt="Documentation"></div>
     <div class="design-item"><img src="images/design4.png" alt="Branding"></div>
@@ -299,21 +175,21 @@
 </section>
 
 <section id="contact">
-  <div class="contact-card">
-    <h2>Let's Connect</h2>
-    <p>I am available for **Remote QA, IT Support, and Virtual Assistance** opportunities.</p>
-    <p>Based in <strong>Kampala, Uganda</strong> | Working Worldwide</p>
-    <div style="margin-top: 30px;">
-        <a href="mailto:kirewendy@gmail.com" class="contact-btn">Email: kirewendy@gmail.com</a>
-        <a href="https://linkedin.com/in/wendymbabazi" target="_blank" class="contact-btn" style="background: #0077b5;">LinkedIn Profile</a>
+  <div class="contact-container">
+    <h2>Let’s Build Something Together</h2>
+    <p style="margin-bottom: 25px;">I am fully equipped for remote work and ready to bring value to your team.</p>
+    <a href="mailto:kirewendy@gmail.com" class="contact-btn">Email Me</a>
+    <a href="https://linkedin.com/in/wendymbabazi" class="contact-btn" style="background:#0077b5">LinkedIn Profile</a>
+    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+        <p><strong>Kampala, Uganda | Available Worldwide (Remote)</strong></p>
+        <p style="font-style: italic; opacity: 0.7; margin-top: 10px;">"I believe in technical integrity and authentic communication."</p>
     </div>
-    <p style="margin-top: 30px; font-style: italic; opacity: 0.7;">"Committing to technical excellence and authentic communication."</p>
   </div>
 </section>
 
 <footer>
   <p>© 2026 Wendy Mbabazi Aikiriza | Makerere University CS Graduate</p>
-  <p>Built with HTML, CSS, and Authenticity.</p>
+  <p>Built with Authenticity & Technical Excellence</p>
 </footer>
 
 </body>
